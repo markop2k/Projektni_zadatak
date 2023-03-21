@@ -9,7 +9,7 @@ korisnik['email'] = input("Unesite email korisnika:").strip()
 artikl = {}
 artikl['naslov'] = input("Unesite naslov artikla:")
 artikl['opis'] = input("Unesite opis artikla:")
-artikl['cijenu'] = float(input("Unesite cijenu artikla:"))
+artikl['cijena'] = float(input("Unesite cijenu artikla:"))
 
 
 prodaja = {}
@@ -28,7 +28,7 @@ print(f"Informacije o artiklu: "
       f"\nDan:{prodaja['datum'].day}"
       f"\nMjesec:{prodaja['datum'].month} "
       f"\nGodina:{prodaja['datum'].year} "
-      f"\n Informacije o korisniku: "
-      f"\n{prodaja['korisnik']['ime']}{prodaja['korisnik']['prezime']}"
+      f"\nInformacije o korisniku: "
+      f"\n{prodaja['korisnik']['ime']} {prodaja['korisnik']['prezime']}"
       f"\nTelefon:{prodaja['korisnik']['telefon']}"
       f"\nEmail:{prodaja['korisnik']['email']}")

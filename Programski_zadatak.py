@@ -5,7 +5,6 @@ kategorije = []
 prodaje = []
 
 broj_korisnika = int(input('Unesite broj korisnika: '))
-
 for i in range(1, broj_korisnika+1):
     korisnik = {}
     korisnik['ime'] = input(f'Unesite ime {i}. korisnika: ').capitalize()
@@ -13,7 +12,31 @@ for i in range(1, broj_korisnika+1):
     korisnik['telefon'] = int(input(f'Unesite telefon {i}. korisnika: '))
     korisnik['email'] = input(f'Unesite email {i}. korisnika: ').strip()
     korisnici.append(korisnik)
+#
+br_osobnih = int(input('Unesite broj osobnih iskaznica: '))
+osobne_iskaznice = []
+for i in range(1, br_osobnih+1):
+    osobna_iskaznica = {}
+    osobna_iskaznica['broj'] = int(input(f'Unesite broj {i}. osobne: '))
+    osobna_iskaznica['oib'] = int(input(f'Unesite oib {i}. osobne: '))
+    osobna_iskaznica['prbivaliste'] =input(f'Unesite prebivaliste {i}.: ').capitalize()
+    osobne_iskaznice.append(osobna_iskaznica)
 
+broj_korisnika = int(input('Unesite broj korisnika: '))
+
+for i in range(1, broj_korisnika+1):
+    korisnik = {}
+    korisnik['ime'] = input(f'Unesite ime {i}. korisnika: ').capitalize()
+    korisnik['prezime'] = input(f'Unesite prezime {i}. korisnika: ').capitalize()
+    korisnik['telefon'] = int(input(f'Unesite telefon {i}. korisnika: '))
+    korisnik['email'] = input(f'Unesite email {i}. korisnika: ').strip()
+    for j, osobna_iskaznica in enumerate(osobne_iskaznice, start=1):
+        print(f"\t{j}. {osobna_iskaznica['oib']} ")
+    odabrana_osobna = int(input("Odaberi osobnu iskaznicu"))
+    korisnik['osobna_iskaznica'] = osobne_iskaznice[odabrana_osobna-1]
+    korisnici.append(korisnik)
+
+#
 broj_kategorija = int(input('Unesite broj kategorija: '))
 
 for i in range(1, broj_kategorija+1):
@@ -85,4 +108,7 @@ for i, prodaja in enumerate(prodaje):
           f"\n\tDan: {prodaja['datum'].day}",
           f"\n\tMjesec: {prodaja['datum'].month}",
           f"\n\tGodina: {prodaja['datum'].year}\n",
+          f"\n{prodaja['korisnik']['osobna_iskaznica']['oib']}",
+          f"\n{prodaja['korisnik']['osobna_iskaznica']['broj']}",
+          f"\n{prodaja['korisnik']['osobna_iskaznica']['prbivaliste']}",
           f"-"*40)
